@@ -1,0 +1,45 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# User Management System
+
+The user management system handles user registration, profiles, and balance tracking.
+
+## User Model
+The user model is defined in `models/user.py` and includes:
+- Telegram user ID (primary identifier)
+- Username
+- Balance information
+- Registration date
+- Transaction history
+
+## User Registration
+New users are registered when they first interact with the bot:
+- Initial registration occurs on /start command
+- User data is stored in the database
+- Default balance is set to 0
+
+## Balance Management
+User balance is managed through:
+- `services/user_service.py` - Contains balance update logic
+- `controllers/user_controller.py` - User-facing commands for balance
+
+## Balance Operations
+The system supports these balance operations:
+- Adding funds through Crypto Pay API
+- Deducting funds for purchases
+- Checking current balance
+- Viewing transaction history
+
+## User Commands
+- `/balance` - Check current balance
+- `/addfunds` - Initiate process to add funds
+- `/profile` - View user profile information
+- `/history` - View transaction history
+
+## Data Persistence
+User data is stored in the database using:
+- `db/repositories/user_repository.py` - CRUD operations for user data
+- `db/repositories/transaction_repository.py` - Transaction record management

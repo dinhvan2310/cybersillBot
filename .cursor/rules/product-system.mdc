@@ -1,0 +1,58 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Product Management System
+
+The product management system handles the software catalog, purchases, and delivery of source code to users.
+
+## Product Model
+The product model is defined in `models/product.py` and includes:
+- Product ID
+- Name
+- Description
+- Price
+- Category
+- File information (for source code delivery)
+- Preview images
+- Creation date
+
+## Product Catalog
+The catalog is managed through:
+- `services/product_service.py` - Product management logic
+- `controllers/product_controller.py` - Bot commands for product interaction
+
+## Browsing Products
+Users can browse products through commands:
+- `/catalog` - View all available products
+- `/category <name>` - Browse products by category
+- `/search <term>` - Search products by keyword
+
+## Purchase Process
+The purchase flow consists of:
+1. User selects a product
+2. System checks user balance
+3. If sufficient, purchase is processed
+4. Balance is deducted
+5. Product (source code) is delivered
+6. Transaction is recorded
+
+## Source Code Delivery
+After purchase, source code is delivered via:
+- Direct file sharing in Telegram
+- Link to download (for larger files)
+- Access to private repository (optional)
+
+## Admin Commands
+Admin users have additional commands:
+- `/addproduct` - Add new product to catalog
+- `/editproduct <id>` - Modify product details
+- `/deleteproduct <id>` - Remove product from catalog
+- `/stats` - View purchase statistics
+
+## Data Storage
+Product data is stored using:
+- `db/repositories/product_repository.py` - CRUD operations for products
+- File system for source code storage
+- Database for purchase records

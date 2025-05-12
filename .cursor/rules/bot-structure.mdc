@@ -1,0 +1,36 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Bot File Structure
+
+## Core Bot Files
+- `bot.py` - Main entry point for the bot
+- `config.py` - Configuration settings and environment variables
+- `handlers/` - Directory containing command and message handlers
+  - `command_handlers.py` - Handles bot commands
+  - `callback_handlers.py` - Handles callback queries
+  - `message_handlers.py` - Handles text messages
+
+## User Management
+- `models/user.py` - User data model
+- `services/user_service.py` - User management logic
+- `controllers/user_controller.py` - User-related bot interactions
+
+## Payment System
+- `services/payment_service.py` - Payment processing logic
+- `integrations/crypto_pay_api.py` - Crypto Pay API integration
+- `models/transaction.py` - Transaction data model
+
+## Product Management
+- `models/product.py` - Product data model
+- `services/product_service.py` - Product catalog and purchase logic
+- `controllers/product_controller.py` - Product-related bot interactions
+
+## Database
+- `db/database.py` - Database connection and setup
+- `db/repositories/` - Data access layer
+  - `user_repository.py` - User data operations
+  - `transaction_repository.py` - Transaction data operations
+  - `product_repository.py` - Product data operations
