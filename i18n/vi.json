@@ -7,5 +7,22 @@
   "support": "ℹ️ Hỗ trợ",
   "choose_language": "Chọn ngôn ngữ",
   "language_changed": "Ngôn ngữ đã được thay đổi thành {language}",
-  "language_changed_success": "Ngôn ngữ đã được thay đổi thành {language} thành công"
+  "language_changed_success": "Ngôn ngữ đã được thay đổi thành {language} thành công",
+  "payment_instruction": "Vui lòng thanh toán bằng cách nhấn vào link sau:\n{url}\nSau khi thanh toán thành công, bạn sẽ nhận được source code tự động.",
+  "thank_you": "Cảm ơn bạn đã thanh toán! Source code sẽ được gửi tự động sau khi hệ thống xác nhận.",
+  "payment_error": "Đã xảy ra lỗi khi tạo hóa đơn. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
+  "deposit": "💸 Nạp tiền",
+  "view_balance": "👛 Xem số dư",
+  "deposit_instruction": "Để nạp tiền, hãy nhập số tiền bạn muốn nạp và làm theo hướng dẫn.",
+  "your_balance": "Số dư hiện tại của bạn: {balance} USDT",
+  "not_enough_balance": "Số dư không đủ để mua code! Giá: {price} USDT. Số dư của bạn: {balance} USDT. Vui lòng nạp thêm tiền.",
+  "send_code_success": "Cảm ơn bạn đã mua! Source code sẽ được gửi cho bạn ngay bây giờ.",
+  "ask_deposit_amount": "Bạn muốn nạp bao nhiêu USDT? Vui lòng nhập số tiền (tối thiểu 1 USDT).",
+  "invalid_deposit_amount": "Số tiền không hợp lệ. Vui lòng nhập một số lớn hơn hoặc bằng 1.",
+  "send_code_caption": "Đây là source code bạn đã mua. Cảm ơn bạn!",
+  "send_code_error": "Lỗi khi gửi file source code! Vui lòng liên hệ hỗ trợ.",
+  "no_transaction": "Bạn chưa có giao dịch nào.",
+  "transaction_history_title": "Lịch sử giao dịch gần nhất:",
+  "transaction_item": "- {type} | {amount} USDT | {status} | {time} {desc}",
+  "transaction_item": "- {type} | {amount} USDT | {status} | {time} {desc}"
 } 

@@ -17,21 +17,23 @@ class UserRepository:
                     telegram_id INTEGER UNIQUE NOT NULL,
                     username TEXT,
                     email TEXT,
-                    created_at TEXT
+                    language TEXT,
+                    created_at TEXT,
+                    balance REAL DEFAULT 0
                 )
             ''')
 
-    def add_user(self, telegram_id, username, email=None, language="en"):
+    def add_user(self, telegram_id, username, email=None, language="en", balance=0.0):
         with self.get_conn() as conn:
             now = datetime.utcnow().isoformat()
             conn.execute(
-                'INSERT OR IGNORE INTO users (telegram_id, username, email, language, created_at) VALUES (?, ?, ?, ?, ?)',
-                (telegram_id, username, email, language, now)
+                'INSERT OR IGNORE INTO users (telegram_id, username, email, language, created_at, balance) VALUES (?, ?, ?, ?, ?, ?)',
+                (telegram_id, username, email, language, now, balance)
             )
 
     def get_user_by_telegram_id(self, telegram_id):
         with self.get_conn() as conn:
-            cur = conn.execute('SELECT id, telegram_id, username, email, language, created_at FROM users WHERE telegram_id = ?', (telegram_id,))
+            cur = conn.execute('SELECT id, telegram_id, username, email, language, created_at, balance FROM users WHERE telegram_id = ?', (telegram_id,))
             row = cur.fetchone()
             if row:
                 return User(*row)
@@ -42,4 +44,15 @@ class UserRepository:
             conn.execute(
                 'UPDATE users SET language = ? WHERE telegram_id = ?',
                 (language, telegram_id)
-            ) 
+            )
+
+    def update_user_balance(self, telegram_id, balance):
+        with self.get_conn() as conn:
+            conn.execute(
+                'UPDATE users SET balance = ? WHERE telegram_id = ?',
+                (balance, telegram_id)
+            )
+
+def get_user_by_telegram_id(telegram_id):
+    repo = UserRepository('db.sqlite3')
+    return repo.get_user_by_telegram_id(telegram_id) 

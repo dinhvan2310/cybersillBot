@@ -8,4 +8,5 @@ class User:
     username: str
     email: str = None
     language: str = "en"  # Trường ngôn ngữ, mặc định là tiếng Anh
-    created_at: datetime = None 
+    created_at: datetime = None
+    balance: float = 0.0 
