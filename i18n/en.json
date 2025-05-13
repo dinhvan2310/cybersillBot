@@ -1,0 +1,11 @@
+{
+  "welcome": "Welcome!",
+  "choose_function": "Please choose a function:",
+  "already_registered": "You are already registered, {username}!",
+  "buy_code": "🛒 Buy code",
+  "check_transaction": "💳 Check transaction",
+  "support": "ℹ️ Support",
+  "choose_language": "Choose language",
+  "language_changed": "Language has been changed to {language}",
+  "language_changed_success": "Language has been changed to {language} successfully"
+} 

@@ -1,0 +1,14 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Product Purchase Rule
+
+This rule ensures users can view products, see prices, and receive purchase/payment instructions in their selected language.
+
+Relevant files:
+- [controllers/product_controller.py](mdc:controllers/product_controller.py)
+- [services/product_service.py](mdc:services/product_service.py)
+- [handlers/command_handlers.py](mdc:handlers/command_handlers.py)
+- [memory-bank/business_analysis.md](mdc:memory-bank/business_analysis.md)

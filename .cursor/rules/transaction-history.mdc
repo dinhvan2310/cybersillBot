@@ -1,0 +1,14 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Transaction History Rule
+
+This rule ensures users can check their transaction status and view their payment history in their selected language.
+
+Relevant files:
+- [controllers/user_controller.py](mdc:controllers/user_controller.py)
+- [db/repositories/transaction_repository.py](mdc:db/repositories/transaction_repository.py)
+- [handlers/command_handlers.py](mdc:handlers/command_handlers.py)
+- [memory-bank/business_analysis.md](mdc:memory-bank/business_analysis.md)

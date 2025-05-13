@@ -1,0 +1,15 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Admin & Maintenance Rule
+
+This rule ensures admin users can manage users, review transactions, update products, and maintain security and stability.
+
+Relevant files:
+- [controllers/user_controller.py](mdc:controllers/user_controller.py)
+- [controllers/product_controller.py](mdc:controllers/product_controller.py)
+- [db/repositories/user_repository.py](mdc:db/repositories/user_repository.py)
+- [db/repositories/transaction_repository.py](mdc:db/repositories/transaction_repository.py)
+- [memory-bank/business_analysis.md](mdc:memory-bank/business_analysis.md)

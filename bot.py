@@ -1,33 +1,30 @@
-import logging
-from telegram.ext import Application
-
+import asyncio
+from telegram.ext import Application, CommandHandler, CallbackQueryHandler
 import config
-from handlers.command_handlers import register_command_handlers
-from db.database import init_database
+from handlers.command_handlers import start, menu_callback
+from webhook_server import app as fastapi_app
+import uvicorn
 
-# Set up logging
-logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    level=logging.INFO
-)
-logger = logging.getLogger(__name__)
+async def on_startup(app):
+    print('cybersillBot is running!')
 
-def main():
-    import asyncio
-    asyncio.run(init_database())
-    logger.info("Database initialized")
-    
-    application = Application.builder().token(config.BOT_TOKEN).build()
-    register_command_handlers(application)
-    logger.info("Command handlers registered")
-    
-    application.run_polling()
-    logger.info("Bot started successfully")
+async def run_bot():
+    app = Application.builder().token(config.TELEGRAM_TOKEN).build()
+    app.add_handler(CommandHandler('start', start))
+    app.add_handler(CallbackQueryHandler(menu_callback))
+    app.post_init = on_startup
+    app.run_polling()
 
-if __name__ == "__main__":
-    try:
-        main()
-    except (KeyboardInterrupt, SystemExit):
-        logger.info("Bot stopped")
-    except Exception as e:
-        logger.error(f"Error running bot: {e}") 
+async def run_fastapi():
+    config_uvicorn = uvicorn.Config(fastapi_app, host="0.0.0.0", port=8000, log_level="info")
+    server = uvicorn.Server(config_uvicorn)
+    await server.serve()
+
+async def main():
+    await asyncio.gather(
+        run_bot(),
+        run_fastapi()
+    )
+
+if __name__ == '__main__':
+    asyncio.run(main()) 

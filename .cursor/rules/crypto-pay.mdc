@@ -1,0 +1,14 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Crypto Pay Integration Rule
+
+This rule ensures the bot can create invoices, send payment links, and track payment status using the Crypto Pay API.
+
+Relevant files:
+- [integrations/crypto_pay_api.py](mdc:integrations/crypto_pay_api.py)
+- [services/payment_service.py](mdc:services/payment_service.py)
+- [config.py](mdc:config.py)
+- [memory-bank/business_analysis.md](mdc:memory-bank/business_analysis.md)

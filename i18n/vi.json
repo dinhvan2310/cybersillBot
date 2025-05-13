@@ -1,0 +1,11 @@
+{
+  "welcome": "Chào mừng!",
+  "choose_function": "Hãy chọn một chức năng:",
+  "already_registered": "Bạn đã đăng ký rồi, {username}!",
+  "buy_code": "🛒 Mua code",
+  "check_transaction": "💳 Kiểm tra giao dịch",
+  "support": "ℹ️ Hỗ trợ",
+  "choose_language": "Chọn ngôn ngữ",
+  "language_changed": "Ngôn ngữ đã được thay đổi thành {language}",
+  "language_changed_success": "Ngôn ngữ đã được thay đổi thành {language} thành công"
+} 

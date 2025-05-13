@@ -1,0 +1,14 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# User Registration Rule
+
+This rule ensures that when a user starts the bot, their registration status is checked and new users are added to the database if needed.
+
+Relevant files:
+- [controllers/user_controller.py](mdc:controllers/user_controller.py)
+- [models/user.py](mdc:models/user.py)
+- [db/repositories/user_repository.py](mdc:db/repositories/user_repository.py)
+- [handlers/command_handlers.py](mdc:handlers/command_handlers.py)

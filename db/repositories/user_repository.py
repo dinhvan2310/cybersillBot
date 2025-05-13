@@ -1,88 +1,45 @@
-import logging
-import aiosqlite
+import sqlite3
+from models.user import User
 from datetime import datetime
-from db.database import get_connection
-
-logger = logging.getLogger(__name__)
 
 class UserRepository:
-    """Repository for user-related database operations"""
+    def __init__(self, db_path):
+        self.db_path = db_path
 
-    @staticmethod
-    async def create_user(telegram_id, username=None, first_name=None, last_name=None):
-        """Create a new user entry"""
-        async with await get_connection() as db:
-            try:
-                query = """
-                INSERT INTO users (telegram_id, username, first_name, last_name)
-                VALUES (?, ?, ?, ?)
-                """
-                await db.execute(query, (telegram_id, username, first_name, last_name))
-                await db.commit()
-                logger.info(f"User created with telegram_id: {telegram_id}")
-                return await UserRepository.get_user_by_telegram_id(telegram_id)
-            except aiosqlite.IntegrityError:
-                logger.warning(f"User with telegram_id: {telegram_id} already exists")
-                return await UserRepository.get_user_by_telegram_id(telegram_id)
-            except Exception as e:
-                logger.error(f"Error creating user: {e}")
-                raise
+    def get_conn(self):
+        return sqlite3.connect(self.db_path)
 
-    @staticmethod
-    async def get_user_by_telegram_id(telegram_id):
-        """Get user by telegram_id"""
-        async with await get_connection() as db:
-            db.row_factory = aiosqlite.Row
-            query = "SELECT * FROM users WHERE telegram_id = ?"
-            cursor = await db.execute(query, (telegram_id,))
-            user = await cursor.fetchone()
-            return dict(user) if user else None
+    def create_table(self):
+        with self.get_conn() as conn:
+            conn.execute('''
+                CREATE TABLE IF NOT EXISTS users (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    telegram_id INTEGER UNIQUE NOT NULL,
+                    username TEXT,
+                    email TEXT,
+                    created_at TEXT
+                )
+            ''')
 
-    @staticmethod
-    async def update_user_balance(telegram_id, amount, add=True):
-        """Update user balance by adding or subtracting"""
-        async with await get_connection() as db:
-            try:
-                query = """
-                UPDATE users 
-                SET balance = balance + ?, 
-                    last_active = ?
-                WHERE telegram_id = ?
-                """
-                if not add:
-                    amount = -abs(amount)  # Ensure amount is negative if subtracting
-                
-                current_time = datetime.now().isoformat()
-                await db.execute(query, (amount, current_time, telegram_id))
-                await db.commit()
-                logger.info(f"Updated balance for user {telegram_id}: {'added' if add else 'subtracted'} {abs(amount)}")
-                return True
-            except Exception as e:
-                logger.error(f"Error updating user balance: {e}")
-                return False
+    def add_user(self, telegram_id, username, email=None, language="en"):
+        with self.get_conn() as conn:
+            now = datetime.utcnow().isoformat()
+            conn.execute(
+                'INSERT OR IGNORE INTO users (telegram_id, username, email, language, created_at) VALUES (?, ?, ?, ?, ?)',
+                (telegram_id, username, email, language, now)
+            )
 
-    @staticmethod
-    async def get_user_balance(telegram_id):
-        """Get user's current balance"""
-        user = await UserRepository.get_user_by_telegram_id(telegram_id)
-        return user['balance'] if user else 0.0
+    def get_user_by_telegram_id(self, telegram_id):
+        with self.get_conn() as conn:
+            cur = conn.execute('SELECT id, telegram_id, username, email, language, created_at FROM users WHERE telegram_id = ?', (telegram_id,))
+            row = cur.fetchone()
+            if row:
+                return User(*row)
+            return None
 
-    @staticmethod
-    async def update_last_active(telegram_id):
-        """Update user's last active timestamp"""
-        async with await get_connection() as db:
-            try:
-                query = "UPDATE users SET last_active = ? WHERE telegram_id = ?"
-                current_time = datetime.now().isoformat()
-                await db.execute(query, (current_time, telegram_id))
-                await db.commit()
-                return True
-            except Exception as e:
-                logger.error(f"Error updating last active: {e}")
-                return False
-
-    @staticmethod
-    async def is_admin(telegram_id):
-        """Check if user is an admin"""
-        user = await UserRepository.get_user_by_telegram_id(telegram_id)
-        return bool(user and user['is_admin']) 
+    def update_user_language(self, telegram_id, language):
+        with self.get_conn() as conn:
+            conn.execute(
+                'UPDATE users SET language = ? WHERE telegram_id = ?',
+                (language, telegram_id)
+            ) 

@@ -1,0 +1,13 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Multilanguage Support
+
+This rule ensures the bot supports multiple languages and language files are easy to manage and extend.
+
+Relevant files:
+- [memory-bank/business_analysis.md](mdc:memory-bank/business_analysis.md)
+- [config.py](mdc:config.py)
+- Any JSON files in the project for language storage
