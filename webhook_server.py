@@ -5,8 +5,8 @@ import config
 
 app = FastAPI()
 
-@app.post("/crypto-webhook/{token}")
-async def crypto_webhook(token: str, request: Request, crypto_pay_api_signature: str = Header(None)):
+@app.post("/crypto-webhook")
+async def crypto_webhook(request: Request, crypto_pay_api_signature: str = Header(None)):
     body = await request.body()
     secret = hashlib.sha256(config.CRYPTO_PAY_API_KEY.encode()).digest()
     hmac_check = hmac.new(secret, body, hashlib.sha256).hexdigest()
