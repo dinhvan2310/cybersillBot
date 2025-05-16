@@ -25,5 +25,6 @@
   "transaction_history_title": "最近的交易记录：",
   "transaction_item": "- {type} | {amount} USDT | {status} | {time} {desc}",
   "transaction_deposit": "充值",
-  "transaction_purchase": "购买代码"
+  "transaction_purchase": "购买代码",
+  "join_group": "加入 Telegram 群组"
 } 

@@ -25,5 +25,6 @@
   "transaction_history_title": "Последняя история транзакций:",
   "transaction_item": "- {type} | {amount} USDT | {status} | {time} {desc}",
   "transaction_deposit": "Пополнение",
-  "transaction_purchase": "Покупка кода"
+  "transaction_purchase": "Покупка кода",
+  "join_group": "Вступить в группу Telegram"
 } 

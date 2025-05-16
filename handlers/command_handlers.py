@@ -30,6 +30,7 @@ async def send_main_menu(message_or_query, lang=None):
             InlineKeyboardButton(get_text("check_transaction", lang), callback_data='check_transaction'),
             InlineKeyboardButton(get_text("support", lang), callback_data='support')
         ],
+        [InlineKeyboardButton(get_text("join_group", lang), url="https://web.telegram.org/k/#-4985701255")],
         [InlineKeyboardButton(get_text("choose_language", lang), callback_data='choose_language')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

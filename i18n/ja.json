@@ -25,5 +25,6 @@
   "transaction_history_title": "最近の取引履歴：",
   "transaction_item": "- {type} | {amount} USDT | {status} | {time} {desc}",
   "transaction_deposit": "入金",
-  "transaction_purchase": "コード購入"
+  "transaction_purchase": "コード購入",
+  "join_group": "Telegramグループに参加"
 } 

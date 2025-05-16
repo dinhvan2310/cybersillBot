@@ -25,5 +25,6 @@
   "transaction_history_title": "Recent transaction history:",
   "transaction_item": "- {type} | {amount} USDT | {status} | {time} {desc}",
   "transaction_deposit": "Deposit",
-  "transaction_purchase": "Buy code"
+  "transaction_purchase": "Buy code",
+  "join_group": "Join Telegram group"
 } 
