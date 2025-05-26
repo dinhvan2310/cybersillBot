@@ -8,8 +8,6 @@ services:
     container_name: cybersillbot
     env_file:
       - .env
-    volumes:
-      - ./:/app
     command: ["python", "bot.py"]
     ports:
       - "8002:8000"
