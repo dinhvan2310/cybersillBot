@@ -6,8 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: cybersillbot
-    env_file:
-      - .env
     command: ["python", "bot.py"]
     ports:
       - "8002:8000"
