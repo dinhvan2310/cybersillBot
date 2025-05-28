@@ -11,5 +11,5 @@ services:
       - "8002:8000"
     restart: unless-stopped
     environment:
-      - HTTP_PROXY=http://kslxewcb:2aeup7adbyjv@198.23.239.134:6540
-      - HTTPS_PROXY=http://kslxewcb:2aeup7adbyjv@198.23.239.134:6540 
+      - HTTP_PROXY=http://kslxewcb:2aeup7adbyjv@136.0.207.84:6661
+      - HTTPS_PROXY=http://kslxewcb:2aeup7adbyjv@136.0.207.84:6661
