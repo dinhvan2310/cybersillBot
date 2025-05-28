@@ -272,6 +272,8 @@ async def buy_product_entry(update: Update, context: ContextTypes.DEFAULT_TYPE):
     product_id = int(query.data.split('_')[2])
     service = ProductService()
     product = service.get_product(product_id)
+    
+    print(product_id, product, user_obj)
     if not product:
         await query.answer()
         await context.bot.send_message(chat_id=user.id, text=get_text("product_not_found", lang))
