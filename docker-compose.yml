@@ -9,4 +9,7 @@ services:
     command: ["python", "bot.py"]
     ports:
       - "8002:8000"
-    restart: unless-stopped 
+    restart: unless-stopped
+    environment:
+      - HTTP_PROXY=http://kslxewcb:2aeup7adbyjv@198.23.239.134:6540
+      - HTTPS_PROXY=http://kslxewcb:2aeup7adbyjv@198.23.239.134:6540 
