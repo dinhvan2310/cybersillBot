@@ -1,25 +1,34 @@
-from telegram import Bot
-from telegram import InputFile
+import requests
 from asyncio import sleep
-from telegram.error import TimedOut
 
+# https://{YOUR_WORKER_URL}/bot{YOUR_BOT_TOKEN}/sendMessage
+YOUR_WORKER_URL = 'plantsnap.trandinhvan0294.workers.dev'
 async def send_message(message, token, chat_id):
-    try:
-        bot = Bot(token=token)
-        await bot.send_message(chat_id=chat_id, text=message)
-    except TimedOut as e:
-        print(f"Error sending message: {e}")
-    finally:
-        await bot.close()
+    url = f"https://{YOUR_WORKER_URL}/bot{token}/sendMessage"
+    payload = {
+        "chat_id": chat_id,
+        "text": message
+    }
+    response = requests.post(url, json=payload, timeout=10)
+    if response.status_code == 200:
+        print("Message sent successfully")
+    else:
+        print(f"Error sending message: {response.text}")
 
 async def send_file(file_path, token, chat_id):
-    bot = Bot(token=token)
+    url = f"https://{YOUR_WORKER_URL}/bot{token}/sendDocument"
     while True:
         try:
             with open(file_path, 'rb') as file:
-                await bot.send_document(chat_id=chat_id, document=InputFile(file))
-            return
-        except TimedOut as e:
+                files = {'document': file}
+                data = {'chat_id': chat_id}
+                response = requests.post(url, files=files, data=data, timeout=10)
+                if response.status_code == 200:
+                    print("File sent successfully")
+                    return
+                else:
+                    print(f"Error sending file: {response.text}")
+        except requests.exceptions.RequestException as e:
             print(f"Error sending file: {e}")
             await sleep(5)
-            # Vòng lặp sẽ tự động thử lại, mở lại file mới
+            # Vòng lặp sẽ tự động thử lại

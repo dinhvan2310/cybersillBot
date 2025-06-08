@@ -44,5 +44,8 @@
   "group_created": "✅ Telegram group created successfully!\nPlease check the group below.",
   "invalid_bot_token": "❌ Invalid format. Please follow the example:\n<bot_token>&<bot_username>\n\nYou can get this information from BotFather.",
   "no_product_selected": "❌ You have not selected a product.",
-  "ask_bot_token": "🔑 To continue, please send us your bot_token and bot_username in the following format:\n<bot_token>&<bot_username>\n\nInstructions:\n1. Access @BotFather on Telegram and create a new bot.\n2. Copy the bot_token and bot_username provided by @BotFather.\n3. Send these two pieces of information in a message, separated by a & (e.g., 123456:ABC-DEF...&my_bot_username).\n\nIf you need assistance, please contact support."
+  "ask_bot_token": "🔑 To continue, please send us your bot_token and bot_username in the following format:\n<bot_token>&<bot_username>\n\nInstructions:\n1. Access @BotFather on Telegram and create a new bot.\n2. Copy the bot_token and bot_username provided by @BotFather.\n3. Send these two pieces of information in a message, separated by a & (e.g., 123456:ABC-DEF...&my_bot_username).\n\nIf you need assistance, please contact support.",
+  "botnet_building_failed": "❌ Error building botnet file! Please contact support.",
+  "botnet_sending_failed": "❌ Error sending botnet file! Please contact support.",
+  "group_creation_failed": "❌ Error creating Telegram group! Please contact support."
 }

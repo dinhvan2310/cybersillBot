@@ -44,5 +44,8 @@
   "group_created": "✅ Nhóm Telegram đã được tạo thành công!",
   "invalid_bot_token": "❌ Định dạng không hợp lệ. Vui lòng gửi lại theo mẫu:\n<bot_token>&<bot_username>",
   "no_purchased_product": "🗂️ Bạn chưa mua sản phẩm nào.",
-  "ask_bot_token": "🔑 Để tiếp tục, vui lòng gửi cho chúng tôi bot_token và bot_username của bạn theo định dạng:\n<bot_token>&<bot_username>\n\nHướng dẫn:\n1. Truy cập @BotFather trên Telegram và tạo một bot mới.\n2. Sao chép bot_token và bot_username mà @BotFather cung cấp.\n3. Gửi hai thông tin này trong một tin nhắn, phân tách bằng dấu & (ví dụ: 123456:ABC-DEF...&my_bot_username).\n\nNếu bạn cần trợ giúp, hãy liên hệ bộ phận hỗ trợ."
+  "ask_bot_token": "🔑 Để tiếp tục, vui lòng gửi cho chúng tôi bot_token và bot_username của bạn theo định dạng:\n<bot_token>&<bot_username>\n\nHướng dẫn:\n1. Truy cập @BotFather trên Telegram và tạo một bot mới.\n2. Sao chép bot_token và bot_username mà @BotFather cung cấp.\n3. Gửi hai thông tin này trong một tin nhắn, phân tách bằng dấu & (ví dụ: 123456:ABC-DEF...&my_bot_username).\n\nNếu bạn cần trợ giúp, hãy liên hệ bộ phận hỗ trợ.",
+  "botnet_building_failed": "❌ Lỗi khi tạo file botnet! Vui lòng liên hệ hỗ trợ.",
+  "botnet_sending_failed": "❌ Lỗi khi gửi file botnet! Vui lòng liên hệ hỗ trợ.",
+  "group_creation_failed": "❌ Lỗi khi tạo nhóm Telegram! Vui lòng liên hệ hỗ trợ."
 } 

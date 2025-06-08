@@ -44,5 +44,8 @@
   "group_created": "✅ あなたのTelegramグループが正常に作成されました！\n送信の準備中...",
   "invalid_bot_token": "❌ 形式が正しくありません。以下の形式で送信してください：\n<bot_token>&<bot_username>\n\nBotFatherからこの情報を取得できます。",
   "no_product_selected": "❌ 商品を選択していません。",
-  "ask_bot_token": "🔑 続けるには、以下の形式でbot_tokenとbot_usernameを送信してください：\n<bot_token>&<bot_username>\n\nヒント:\n1. Telegramの@BotFatherにアクセスして新しいボットを作成します。\n2. @BotFatherからbot_tokenとbot_usernameをコピーします。\n3. これらの情報を1つのメッセージに送信し、&で区切ります（例：123456:ABC-DEF...&my_bot_username）。\n\nサポートが必要な場合は、サポートにお問い合わせください。"
+  "ask_bot_token": "🔑 続けるには、以下の形式でbot_tokenとbot_usernameを送信してください：\n<bot_token>&<bot_username>\n\nヒント:\n1. Telegramの@BotFatherにアクセスして新しいボットを作成します。\n2. @BotFatherからbot_tokenとbot_usernameをコピーします。\n3. これらの情報を1つのメッセージに送信し、&で区切ります（例：123456:ABC-DEF...&my_bot_username）。\n\nサポートが必要な場合は、サポートにお問い合わせください。",
+  "botnet_building_failed": "❌ botnetファイルの作成中にエラーが発生しました。サポートにご連絡ください。",
+  "botnet_sending_failed": "❌ botnetファイルの送信中にエラーが発生しました。サポートにご連絡ください。",
+  "group_creation_failed": "❌ Telegramグループの作成中にエラーが発生しました。サポートにご連絡ください。"
 } 

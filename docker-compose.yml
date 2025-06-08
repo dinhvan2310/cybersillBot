@@ -11,5 +11,8 @@ services:
       - "8002:8000"
     restart: unless-stopped
     environment:
-      - HTTP_PROXY=http://kslxewcb:2aeup7adbyjv@198.23.239.134:6540
-      - HTTPS_PROXY=http://kslxewcb:2aeup7adbyjv@198.23.239.134:6540
+      - TELEGRAM_TOKEN=8089913787:AAFbEVkIDkKCENHsYQ1KPJzbAVYzUTLaxD4
+      - CRYPTO_PAY_API_TOKEN=382721:AASJGhh5oXLJvuMsfhR5PTGUE3CrMGLKmVW
+      - API_ID=10016773
+      - API_HASH=788b3df4ef36b07ee6c8f75099b08bb2
+      - PHONE=+84708137908
